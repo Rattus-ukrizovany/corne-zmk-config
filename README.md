@@ -82,3 +82,41 @@ Artifacts will be available for download after successful builds:
 - `corne_right-nice_nano_v2-zmk.uf2`  
 - `corne_dongle-nice_nano_v2-zmk.uf2`
 - `settings_reset-nice_nano_v2-zmk.uf2`
+
+## Keymap PNG Generation
+
+A GitHub Actions workflow automatically generates a PNG visual of the keymap whenever `config/corne.keymap` is modified. The workflow can also be triggered manually from the Actions tab.
+
+### Using the Workflow
+
+1. **Automatic Generation**: Push changes to `config/corne.keymap` to trigger the workflow
+2. **Manual Generation**: Go to the Actions tab → "Generate Keymap PNG" → "Run workflow"
+3. **Download**: After the workflow completes, download the `keymap-png` artifact containing `corne.keymap.png`
+
+### Running Locally
+
+To generate the keymap PNG on your local machine:
+
+1. Install dependencies:
+   ```bash
+   pip install keymap-drawer
+   sudo apt-get install inkscape  # For SVG to PNG conversion
+   ```
+
+2. Create a config file for the background color:
+   ```bash
+   cat > keymap-config.yaml << EOF
+   draw_config:
+     svg_extra_style: |
+       svg { background-color: #b8a78b; }
+   EOF
+   ```
+
+3. Generate the PNG:
+   ```bash
+   keymap-drawer -c keymap-config.yaml parse -z config/corne.keymap | \
+   keymap-drawer -c keymap-config.yaml draw -z corne -o config/corne.keymap.svg -
+   inkscape --export-type=png --export-dpi=300 config/corne.keymap.svg -o config/corne.keymap.png
+   ```
+
+<img src="https://raw.githubusercontent.com/Rattus-ukrizovany/corne-zmk-config/main/config/corne.keymap.png" alt="Keymap PNG Example" width="600"/>
