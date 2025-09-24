@@ -78,10 +78,10 @@ The above keymap drawer represents the current configuration and preserves the o
 
 **After every successful build, the latest firmware and keymap PNG are uploaded here:**
 
-- 🟦 **[Corne Left Firmware](firmware/corne_left-nice_nano_v2-zmk.uf2)**
-- 🟩 **[Corne Right Firmware](firmware/corne_right-nice_nano_v2-zmk.uf2)**
-- 🟨 **[Dongle Firmware](firmware/corne_dongle-nice_nano_v2-zmk.uf2)**
-- 🧹 **[Settings Reset Firmware](firmware/settings_reset-nice_nano_v2-zmk.uf2)**
+- 🟦 **[Corne Left Firmware (nice_view_adapter)](https://github.com/Rattus-ukrizovany/corne-zmk-config/blob/908a864bd18959406f5fd12c3377a4d8d230f5f2/firmware/corne_left%20nice_view_adapter%20nice_view-nice_nano_v2-zmk.uf2)**
+- 🟩 **[Corne Right Firmware (nice_view_adapter)](https://github.com/Rattus-ukrizovany/corne-zmk-config/blob/908a864bd18959406f5fd12c3377a4d8d230f5f2/firmware/corne_right%20nice_view_adapter%20nice_view-nice_nano_v2-zmk.uf2)**
+- 🟨 **[Dongle Firmware (dongle_display)](https://github.com/Rattus-ukrizovany/corne-zmk-config/blob/908a864bd18959406f5fd12c3377a4d8d230f5f2/firmware/corne_dongle%20dongle_display-nice_nano_v2-zmk.uf2)**
+- 🧹 **[Settings Reset Firmware](https://github.com/Rattus-ukrizovany/corne-zmk-config/blob/908a864bd18959406f5fd12c3377a4d8d230f5f2/firmware/settings_reset-nice_nano_v2-zmk.uf2)**
 - 🖼️ **[Keymap PNG](keymap/corne.keymap.png)**
 
 _Just click the link for the file you want to download!_
