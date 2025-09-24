@@ -60,7 +60,7 @@ The keymap is identical across all build targets to ensure consistent behavior.
 
 ### Keymap Drawer
 
-![Keymap Drawer](assets/keymap-drawer.png)
+![Keymap Drawer](assets/keymap-drawer.svg)
 
 The above keymap drawer represents the current configuration and preserves the original color scheme as referenced.
 
