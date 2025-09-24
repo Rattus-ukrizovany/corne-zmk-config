@@ -58,6 +58,12 @@ The keymap includes:
 
 The keymap is identical across all build targets to ensure consistent behavior.
 
+### Keymap Drawer
+
+![Keymap Drawer](assets/keymap-drawer.png)
+
+The above keymap drawer represents the current configuration and preserves the original color scheme as referenced.
+
 ## Configuration Files
 
 - `build.yaml` - Defines build targets for GitHub Actions
