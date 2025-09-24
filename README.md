@@ -1,132 +1,142 @@
-# Corne ZMK Configuration with Dongle Support
+# 🌱 Corne ZMK Config with Dongle Support
 
-This repository contains a ZMK configuration for the Corne keyboard with support for both split halves and a central dongle setup.
+This repository contains a ZMK configuration for the Corne keyboard—supporting both split halves and a central dongle setup.
 
-## Build Targets
+---
 
-This configuration supports the following build targets:
+## 🚦 Build Targets
 
-1. **Left Half** (`corne_left`) - Nice Nano v2 with Nice View display
-2. **Right Half** (`corne_right`) - Nice Nano v2 with Nice View display  
-3. **Central Dongle** (`corne_dongle`) - Nice Nano v2 with SSH1106 OLED display
-4. **Settings Reset** (`settings_reset`) - For clearing paired devices
+| Target          | Device/Display            | Description                |
+|-----------------|--------------------------|----------------------------|
+| **corne_left**  | Nice Nano v2 + Nice View | Left half                  |
+| **corne_right** | Nice Nano v2 + Nice View | Right half                 |
+| **corne_dongle**| Nice Nano v2 + SSH1106   | Central dongle (USB HID)   |
+| **settings_reset** | -                      | Clears paired devices      |
 
-## Dongle Configuration
+---
 
-The central dongle configuration (`corne_dongle`) provides:
+## 🖥️ Dongle Configuration
 
-- **Central role**: Acts as the central device that both keyboard halves connect to
-- **USB HID output**: Provides keyboard input to the connected computer via USB
-- **SSH1106 OLED display**: 128x64 pixel display (1.3" compatible) connected via I2C
-  - SDA on pin P0.17 (pin 17)
-  - SCL on pin P0.20 (pin 20)
-- **Advanced display widgets**: Battery status, layer indicators, Bongo Cat animation, modifiers, and HID indicators
-- **Bluetooth connectivity**: Connects to both keyboard halves wirelessly
-- **Identical keymap**: Same keymap as the split halves for consistent behavior
+The central dongle (`corne_dongle`) acts as the hub for both halves.
+
+- **Central role**: Keyboard halves connect wirelessly via Bluetooth
+- **USB HID output**: Keyboard input via USB to PC
+- **SSH1106 OLED display**: 128x64 px (1.3" compatible), I2C:
+  - SDA → P0.17 (pin 17)
+  - SCL → P0.20 (pin 20)
+- **Advanced widgets**: Battery, layers, Bongo Cat, modifiers, HID indicators
+- **Bluetooth**: Wireless connection for both halves
+- **Identical keymap**: Same layout as halves
 
 ### Display Features
-The dongle integrates with the `zmk-dongle-display` module to provide:
-- **Battery Status**: Shows battery levels for both dongle and connected halves
-- **Layer Status**: Visual indication of active keyboard layer
-- **Modifier Status**: Shows active modifier keys (Shift, Ctrl, Alt, etc.)
-- **Bongo Cat Animation**: Animated typing indicator
-- **HID Indicators**: Caps Lock, Num Lock, and Scroll Lock status
 
-## Hardware Requirements
+Powered by `zmk-dongle-display`:
+- 🔋 Battery status (dongle + halves)
+- 🔄 Layer indication
+- ⌨️ Modifier keys (Shift, Ctrl, Alt…)
+- 🐾 Bongo Cat typing animation
+- 🔢 HID indicators (Caps/Num/Scroll Lock)
 
-### For the Dongle:
+---
+
+## 🔌 Hardware Requirements
+
+### Dongle
+
 - Nice Nano v2 controller
-- SSH1106 OLED display (128x64) - 1.3 inch compatible
+- SSH1106 OLED (128x64, 1.3”)
 - Connections:
-  - Display SDA → Pin 17 (P0.17)  
-  - Display SCL → Pin 20 (P0.20)
-  - Display VCC → 3.3V
-  - Display GND → GND
+  - SDA → Pin 17 (P0.17)
+  - SCL → Pin 20 (P0.20)
+  - VCC → 3.3V
+  - GND → GND
 
-### For the Keyboard Halves:
-- Nice Nano v2 controllers (left and right)
-- Nice View displays with adapters
-- Standard Corne handwired construction
+### Keyboard Halves
 
-## Usage
+- Two Nice Nano v2 controllers
+- Nice View displays + adapters
+- Standard Corne handwired build
 
-1. **Build the firmware** using the GitHub Actions workflow
-2. **Flash the dongle** with the `corne_dongle` firmware
-3. **Flash the halves** with `corne_left` and `corne_right` firmware
-4. **Connect the dongle** to your computer via USB
-5. **Power on the keyboard halves** - they should automatically connect to the dongle
-6. **Use the keyboard** - all input will be transmitted through the dongle to the computer
+---
 
-## Keymap
+## 📝 Usage
 
-The keymap includes:
-- Base layer with QWERTY layout and homerow mods
-- Lower layer with numbers and symbols
-- Raise layer with function keys and media controls
-- Additional layers for special functions
+1. **Build firmware** (GitHub Actions workflow)
+2. **Flash dongle** with `corne_dongle` firmware
+3. **Flash halves** with `corne_left` and `corne_right` firmware
+4. **Connect dongle** to your computer via USB
+5. **Power on halves**—they’ll auto-connect to dongle
+6. **Enjoy typing!** Input transmits through dongle
 
-The keymap is identical across all build targets to ensure consistent behavior.
+---
 
-### Keymap Drawer
+## ⌨️ Keymap
 
-You can always find the latest keymap PNG here:
+- QWERTY base with homerow mods
+- Lower: Numbers + symbols
+- Raise: F-keys + media
+- Extra: Special function layers
+- **Identical keymap for all devices!**
+
+### 🖼️ Keymap Drawer
+
+Latest PNG here:
 ![Keymap Drawer](keymap/corne.keymap.png)
 
-The above keymap drawer represents the current configuration and preserves the original color scheme as referenced.
+---
 
-## 🚀 **Download Latest Firmware & Keymap**
+## 📥 Download Latest Firmware & Keymap
 
-**After every successful build, the latest firmware and keymap PNG are uploaded here:**
+After each build, find the latest files here:
 
-- 🟦 **[Corne Left Firmware (nice_view_adapter)](https://github.com/Rattus-ukrizovany/corne-zmk-config/blob/908a864bd18959406f5fd12c3377a4d8d230f5f2/firmware/corne_left%20nice_view_adapter%20nice_view-nice_nano_v2-zmk.uf2)**
-- 🟩 **[Corne Right Firmware (nice_view_adapter)](https://github.com/Rattus-ukrizovany/corne-zmk-config/blob/908a864bd18959406f5fd12c3377a4d8d230f5f2/firmware/corne_right%20nice_view_adapter%20nice_view-nice_nano_v2-zmk.uf2)**
-- 🟨 **[Dongle Firmware (dongle_display)](https://github.com/Rattus-ukrizovany/corne-zmk-config/blob/908a864bd18959406f5fd12c3377a4d8d230f5f2/firmware/corne_dongle%20dongle_display-nice_nano_v2-zmk.uf2)**
-- 🧹 **[Settings Reset Firmware](https://github.com/Rattus-ukrizovany/corne-zmk-config/blob/908a864bd18959406f5fd12c3377a4d8d230f5f2/firmware/settings_reset-nice_nano_v2-zmk.uf2)**
-- 🖼️ **[Keymap PNG](keymap/corne.keymap.png)**
+- 🟦 [Corne Left Firmware](firmware/corne_left%20nice_view_adapter%20nice_nano_v2-zmk.uf2)
+- 🟩 [Corne Right Firmware](firmware/corne_right%20nice_view_adapter%20nice_nano_v2-zmk.uf2)
+- 🟨 [Dongle Firmware](firmware/corne_dongle%20dongle_display-nice_nano_v2-zmk.uf2)
+- 🧹 [Settings Reset Firmware](firmware/settings_reset-nice_nano_v2-zmk.uf2)
+- 🖼️ [Keymap PNG](keymap/corne.keymap.png)
 
-_Just click the link for the file you want to download!_
+_Just click to download!_
 
-## Configuration Files
+---
 
-- `build.yaml` - Defines build targets for GitHub Actions
-- `config/corne.conf` - Configuration for split halves
-- `config/corne.keymap` - Keymap for split halves
-- `config/corne_dongle.conf` - Configuration for central dongle
-- `config/corne_dongle.keymap` - Keymap for central dongle (identical to split)
-- `config/boards/shields/corne_dongle/` - Shield definition for dongle hardware
+## ⚙️ Configuration Files
 
-## Building
+| File/Folder                                  | Purpose/Contents                       |
+|-----------------------------------------------|----------------------------------------|
+| `build.yaml`                                 | Defines build targets (GitHub Actions) |
+| `config/corne.conf`                          | Split halves config                    |
+| `config/corne.keymap`                        | Keymap for split halves                |
+| `config/corne_dongle.conf`                   | Dongle config                          |
+| `config/corne_dongle.keymap`                 | Dongle keymap (identical to halves)    |
+| `config/boards/shields/corne_dongle/`        | Dongle hardware shield definition      |
 
-Firmware builds automatically via GitHub Actions when changes are pushed. The workflow requires approval for forked repositories.
+---
 
-Artifacts will be available for download after successful builds:
-- `corne_left-nice_nano_v2-zmk.uf2`
-- `corne_right-nice_nano_v2-zmk.uf2`  
-- `corne_dongle-nice_nano_v2-zmk.uf2`
-- `settings_reset-nice_nano_v2-zmk.uf2`
+## 🛠️ Building & Artifacts
 
-## Keymap PNG Generation
+- Firmware builds automatically on push (GitHub Actions)
+- Forks: workflow needs approval
+- Download artifacts after each build:
+  - `corne_left-nice_nano_v2-zmk.uf2`
+  - `corne_right-nice_nano_v2-zmk.uf2`
+  - `corne_dongle-nice_nano_v2-zmk.uf2`
+  - `settings_reset-nice_nano_v2-zmk.uf2`
 
-A GitHub Actions workflow automatically generates a PNG visual of the keymap whenever `config/corne.keymap` is modified. The workflow can also be triggered manually from the Actions tab.
+---
 
-### Using the Workflow
+## 🖼️ Keymap PNG Generation
 
-1. **Automatic Generation**: Push changes to `config/corne.keymap` to trigger the workflow
-2. **Manual Generation**: Go to the Actions tab → "Generate Keymap PNG" → "Run workflow"
-3. **Download**: After the workflow completes, download the `keymap-png` artifact containing `corne.keymap.png`
+A workflow auto-generates PNG whenever `config/corne.keymap` changes—or trigger manually from Actions.
 
-### Running Locally
+### Local Generation
 
-To generate the keymap PNG on your local machine:
-
-1. Install dependencies:
+1. **Install dependencies:**
    ```bash
    pip install keymap-drawer
-   sudo apt-get install inkscape  # For SVG to PNG conversion (Ubuntu/Debian)
-   # OR: brew install inkscape    # For macOS
+   sudo apt-get install inkscape      # Ubuntu/Debian
+   # OR: brew install inkscape        # macOS
    ```
-
-2. Create a config file for the background color:
+2. **Create config for background color:**
    ```bash
    cat > keymap-config.yaml << EOF
    draw_config:
@@ -134,10 +144,13 @@ To generate the keymap PNG on your local machine:
        svg { background-color: #b8a78b; }
    EOF
    ```
-
-3. Generate the PNG:
+3. **Generate PNG:**
    ```bash
    python -m keymap_drawer -c keymap-config.yaml parse -z config/corne.keymap | \
    python -m keymap_drawer -c keymap-config.yaml draw -z corne -o config/corne.keymap.svg -
    inkscape --export-type=png --export-dpi=300 config/corne.keymap.svg -o config/corne.keymap.png
    ```
+
+---
+
+Enjoy your modern, functional, and beautiful split keyboard setup! 😊
