@@ -30,18 +30,7 @@ jobs:
           # List what we copied for verification
           ls -la firmware/
       
-      - name: Commit and push firmware files
-        run: |
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git config --global user.name "github-actions[bot]"
-          git add firmware/
-          # Only commit if there are changes
-          if ! git diff --cached --quiet; then
-            git commit -m "Auto-update firmware UF2 files [skip ci]"
-            git push
-          fi
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
 
       - name: Upload firmware folder as artifact
         uses: actions/upload-artifact@v4
