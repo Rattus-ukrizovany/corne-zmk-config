@@ -17,17 +17,26 @@ The central dongle configuration (`corne_dongle`) provides:
 
 - **Central role**: Acts as the central device that both keyboard halves connect to
 - **USB HID output**: Provides keyboard input to the connected computer via USB
-- **SSH1106 OLED display**: 128x64 pixel display connected via I2C
+- **SSH1106 OLED display**: 128x64 pixel display (1.3" compatible) connected via I2C
   - SDA on pin P0.17 (pin 17)
   - SCL on pin P0.20 (pin 20)
+- **Advanced display widgets**: Battery status, layer indicators, Bongo Cat animation, modifiers, and HID indicators
 - **Bluetooth connectivity**: Connects to both keyboard halves wirelessly
 - **Identical keymap**: Same keymap as the split halves for consistent behavior
+
+### Display Features
+The dongle integrates with the `zmk-dongle-display` module to provide:
+- **Battery Status**: Shows battery levels for both dongle and connected halves
+- **Layer Status**: Visual indication of active keyboard layer
+- **Modifier Status**: Shows active modifier keys (Shift, Ctrl, Alt, etc.)
+- **Bongo Cat Animation**: Animated typing indicator
+- **HID Indicators**: Caps Lock, Num Lock, and Scroll Lock status
 
 ## Hardware Requirements
 
 ### For the Dongle:
 - Nice Nano v2 controller
-- SSH1106 OLED display (128x64)
+- SSH1106 OLED display (128x64) - 1.3 inch compatible
 - Connections:
   - Display SDA → Pin 17 (P0.17)  
   - Display SCL → Pin 20 (P0.20)
