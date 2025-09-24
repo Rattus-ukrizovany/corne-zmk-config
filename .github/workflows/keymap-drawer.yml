@@ -45,5 +45,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: keymap-png-${{ github.job }}-${{ github.run_id }}
-          path: config/corne.keymap.png
+          path: assets/corne.keymap.png
           retention-days: 30
