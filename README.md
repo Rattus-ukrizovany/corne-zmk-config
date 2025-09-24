@@ -160,4 +160,4 @@ A workflow auto-generates PNG whenever `config/corne.keymap` changes—or trigge
   
 ---
 
-Enjoy your modern, functional, and beautiful split keyboard setup! 😊
+
