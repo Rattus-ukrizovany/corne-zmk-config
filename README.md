@@ -80,7 +80,7 @@ After every successful build, the latest firmware files and keymap PNG are autom
 
 - [Download latest Corne Left firmware](firmware/corne_left-nice_nano_v2-zmk.uf2)
 - [Download latest Corne Right firmware](firmware/corne_right-nice_nano_v2-zmk.uf2)
-- [Download latest Dongle firmware](firmware/corne_dongle-nice_nano_v2-zmk.uf2)
+- [Download latest Dongle firmware](firmware/corne_dongle dongle_display-nice_nano_v2-zmk.uf2)
 - [Download latest Settings Reset firmware](firmware/settings_reset-nice_nano_v2-zmk.uf2)
 - [View latest keymap PNG](keymap/corne.keymap.png)
 
