@@ -150,7 +150,14 @@ A workflow auto-generates PNG whenever `config/corne.keymap` changes—or trigge
    python -m keymap_drawer -c keymap-config.yaml draw -z corne -o config/corne.keymap.svg -
    inkscape --export-type=png --export-dpi=300 config/corne.keymap.svg -o config/corne.keymap.png
    ```
+---
 
+## 🙌 Community & Related Projects
+
+- **YADS Dongle Maker**: This repo ([janpfischer/zmk-dongle-screen](https://github.com/janpfischer/zmk-dongle-screen)) is "Yet Another Dongle Screen" (YADS) by @janpfischer—an advanced, modular ZMK dongle display project for the Seeeduino XIAO BLE and Nice!Nano v2.
+- **ZMK Community**: Find support, discussion, and resources at the [ZMK Community](https://zmk.dev/community/).
+- **@englmaxi/zmk-dongle-display**: The [zmk-dongle-display](https://github.com/englmaxi/zmk-dongle-display) project provides additional widgets and OLED support for ZMK dongle builds.
+  
 ---
 
 Enjoy your modern, functional, and beautiful split keyboard setup! 😊
