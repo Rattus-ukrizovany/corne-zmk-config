@@ -1,5 +1,8 @@
 on: [push, pull_request, workflow_dispatch]
 
+permissions:
+  contents: write
+
 jobs:
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
@@ -18,19 +21,29 @@ jobs:
       
       - name: Create and clear firmware folder
         run: |
-          # Remove existing firmware folder if it exists
           rm -rf firmware
-          # Create fresh firmware folder
           mkdir -p firmware
       
       - name: Copy firmware files to firmware folder
         run: |
-          # Find and copy all .uf2 files from downloaded artifacts
           find downloaded-artifacts -name "*.uf2" -exec cp {} firmware/ \;
-          # List what we copied for verification
           ls -la firmware/
       
+      - name: Configure git for pushing
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
 
+      - name: Commit firmware files
+        run: |
+          git add firmware/
+          git diff --cached --quiet || git commit -m "Add firmware from workflow run ${{ github.run_id }}"
+      
+      - name: Push firmware files to repository
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git push origin HEAD:${{ github.ref }}
 
       - name: Upload firmware folder as artifact
         uses: actions/upload-artifact@v4
