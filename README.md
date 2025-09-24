@@ -74,15 +74,17 @@ You can always find the latest keymap PNG here:
 
 The above keymap drawer represents the current configuration and preserves the original color scheme as referenced.
 
-## Download Latest Firmware & Keymap
+## 🚀 **Download Latest Firmware & Keymap**
 
-After every successful build, the latest firmware files and keymap PNG are automatically uploaded here:
+**After every successful build, the latest firmware and keymap PNG are uploaded here:**
 
-- [Download latest Corne Left firmware](firmware/corne_left-nice_nano_v2-zmk.uf2)
-- [Download latest Corne Right firmware](firmware/corne_right-nice_nano_v2-zmk.uf2)
-- [Download latest Dongle firmware](firmware/corne_dongle dongle_display-nice_nano_v2-zmk.uf2)
-- [Download latest Settings Reset firmware](firmware/settings_reset-nice_nano_v2-zmk.uf2)
-- [View latest keymap PNG](keymap/corne.keymap.png)
+- 🟦 **[Corne Left Firmware](firmware/corne_left-nice_nano_v2-zmk.uf2)**
+- 🟩 **[Corne Right Firmware](firmware/corne_right-nice_nano_v2-zmk.uf2)**
+- 🟨 **[Dongle Firmware](firmware/corne_dongle-nice_nano_v2-zmk.uf2)**
+- 🧹 **[Settings Reset Firmware](firmware/settings_reset-nice_nano_v2-zmk.uf2)**
+- 🖼️ **[Keymap PNG](keymap/corne.keymap.png)**
+
+_Just click the link for the file you want to download!_
 
 ## Configuration Files
 
