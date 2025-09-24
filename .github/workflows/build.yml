@@ -4,9 +4,40 @@ jobs:
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
 
+  keymap_drawer:
+    name: Generate Keymap PNG
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install keymap-drawer and Inkscape
+        run: |
+          pip install keymap-drawer
+          sudo apt-get update
+          sudo apt-get install -y inkscape
+
+      - name: Generate keymap PNG
+        run: |
+          python -m keymap_drawer parse -z config/corne.keymap | \
+          python -m keymap_drawer draw -z corne -o corne.keymap.svg -
+          inkscape --export-type=png --export-dpi=300 corne.keymap.svg -o corne.keymap.png
+
+      - name: Upload keymap PNG
+        uses: actions/upload-artifact@v4
+        with:
+          name: keymap-image
+          path: corne.keymap.png
+
   push_artifacts:
     name: Push build artifacts to repo
-    needs: build
+    needs: [build, keymap_drawer]
     runs-on: ubuntu-latest
     if: ${{ needs.build.result == 'success' }}
     steps:
