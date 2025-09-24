@@ -3,6 +3,14 @@
  *
  * SPDX-License-Identifier: MIT
  */
+&i2c0 {
+    ssh1106@3c {
+        compatible = "seeed,ssh1106";
+        reg = <0x3c>;
+        width = <128>;
+        // Add other required properties here (height, etc.)
+    };
+};
 
 // SSH1106 display configuration moved to shield-specific overlays
 // to avoid conflicts with other shield types (e.g., Nice View displays)
