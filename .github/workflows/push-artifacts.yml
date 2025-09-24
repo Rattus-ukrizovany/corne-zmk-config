@@ -1,0 +1,49 @@
+name: Push Firmware Artifacts
+
+on:
+  workflow_run:
+    workflows: ["Build"]
+    types:
+      - completed
+
+jobs:
+  push_artifacts:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Download workflow artifacts
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const artifacts = await github.rest.actions.listWorkflowRunArtifacts({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              run_id: context.payload.workflow_run.id,
+            });
+            const fs = require('fs');
+            const execSync = require('child_process').execSync;
+            for (const artifact of artifacts.data.artifacts) {
+              const download = await github.rest.actions.downloadArtifact({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                artifact_id: artifact.id,
+                archive_format: 'zip',
+              });
+              fs.writeFileSync(`${artifact.name}.zip`, Buffer.from(download.data));
+              execSync(`unzip -o ${artifact.name}.zip -d firmware/`);
+            }
+
+      - name: Commit and push firmware artifacts
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add firmware/
+          git commit -m "Update firmware artifacts from latest successful build" || echo "No changes to commit"
+          git push
+
+      # Optionally, you can add steps to update README.md with links to files in 'firmware/'.
