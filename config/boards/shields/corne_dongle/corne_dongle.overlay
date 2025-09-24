@@ -50,7 +50,7 @@ RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5)                 RC(2,6) RC(2,7) 
     pinctrl-names = "default", "sleep";
 
     oled: ssh1106@3c {
-        compatible = "solomon,ssh1106fb";
+        compatible = "solomon,ssh1106";
         reg = <0x3c>;
         label = "DISPLAY";
         width = <128>;
@@ -90,7 +90,7 @@ RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5)                 RC(2,6) RC(2,7) 
     pinctrl-names = "default", "sleep";
 
     oled: ssh1106@3c {
-        compatible = "solomon,ssh1106fb";
+        compatible = "solomon,ssh1106";
         reg = <0x3c>;
         label = "DISPLAY";
         width = <128>;
