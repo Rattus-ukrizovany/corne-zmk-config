@@ -1,0 +1,14 @@
+/*
+ * Copyright (c) 2020 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+&i2c0 {
+    ssh1106@3c {
+        compatible = "solomon,ssh1106";
+        reg = <0x3c>;
+        width = <128>;
+        height = <64>;
+    };
+};
