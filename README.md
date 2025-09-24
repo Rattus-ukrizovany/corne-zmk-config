@@ -60,7 +60,7 @@ The keymap is identical across all build targets to ensure consistent behavior.
 
 ### Keymap Drawer
 
-![Keymap Drawer](assets/corne.keymap)
+![Keymap Drawer](assets/corne.keymap.png)
 
 The above keymap drawer represents the current configuration and preserves the original color scheme as referenced.
 
