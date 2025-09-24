@@ -1,0 +1,38 @@
+name: Upload Firmware Artifacts
+
+on:
+  workflow_run:
+    workflows: ["build.yaml"]
+    types:
+      - completed
+
+jobs:
+  upload:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v4
+        with:
+          ref: main
+
+      - name: Download build artifacts to firmware folder (preserve names)
+        uses: actions/download-artifact@v4
+        with:
+          path: firmware
+
+      - name: List downloaded files
+        run: ls -l firmware
+
+      - name: Configure git
+        run: |
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+
+      - name: Commit and push firmware artifacts to main
+        run: |
+          git add firmware/
+          git commit -m "Add firmware artifacts from build.yaml"
+          git push origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
