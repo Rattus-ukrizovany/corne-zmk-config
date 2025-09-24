@@ -1,35 +1,35 @@
-
-
 jobs:
   build:
     uses: zmkfirmware/zmk/.github/workflows/build-user-config.yml@main
-  
+
   firmware-management:
     needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      
+
       - name: Download firmware artifacts
         uses: actions/download-artifact@v4
         with:
           path: downloaded-artifacts
-      
+
+      - name: Print downloaded artifact contents
+        run: |
+          echo "Listing downloaded artifacts:"
+          find downloaded-artifacts
+
       - name: Create and clear firmware folder
         run: |
-          # Remove existing firmware folder if it exists
           rm -rf firmware
-          # Create fresh firmware folder
           mkdir -p firmware
-      
+
       - name: Copy firmware files to firmware folder
         run: |
-          # Find and copy all .uf2 files from downloaded artifacts
           find downloaded-artifacts -name "*.uf2" -exec cp {} firmware/ \;
-          # List what we copied for verification
+          echo "Copied files to firmware:"
           ls -la firmware/
-      
+
       - name: Upload firmware folder as artifact
         uses: actions/upload-artifact@v4
         with:
