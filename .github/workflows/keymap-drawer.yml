@@ -1,0 +1,49 @@
+name: Generate Keymap PNG
+
+on:
+  push:
+    paths:
+      - 'config/corne.keymap'
+  workflow_dispatch:
+
+jobs:
+  keymap-drawer:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+          
+      - name: Install dependencies
+        run: |
+          pip install keymap-drawer
+          sudo apt-get update
+          sudo apt-get install -y inkscape
+          
+      - name: Create keymap config
+        run: |
+          cat > keymap-config.yaml << EOF
+          draw_config:
+            svg_extra_style: |
+              svg { background-color: #b8a78b; }
+          EOF
+          
+      - name: Generate keymap SVG
+        run: |
+          python -m keymap_drawer -c keymap-config.yaml parse -z config/corne.keymap | \
+          python -m keymap_drawer -c keymap-config.yaml draw -z corne -o config/corne.keymap.svg -
+          
+      - name: Convert SVG to PNG
+        run: inkscape --export-type=png --export-dpi=300 config/corne.keymap.svg -o config/corne.keymap.png
+        
+      - name: Upload PNG artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: keymap-png
+          path: config/corne.keymap.png
+          retention-days: 30
