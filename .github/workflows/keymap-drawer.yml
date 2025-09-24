@@ -35,8 +35,8 @@ jobs:
           
       - name: Generate keymap SVG
         run: |
-          keymap-drawer -c keymap-config.yaml parse -z config/corne.keymap | \
-          keymap-drawer -c keymap-config.yaml draw -z corne -o config/corne.keymap.svg -
+          python -m keymap_drawer -c keymap-config.yaml parse -z config/corne.keymap | \
+          python -m keymap_drawer -c keymap-config.yaml draw -z corne -o config/corne.keymap.svg -
           
       - name: Convert SVG to PNG
         run: inkscape --export-type=png --export-dpi=300 config/corne.keymap.svg -o config/corne.keymap.png

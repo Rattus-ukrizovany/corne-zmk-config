@@ -100,7 +100,8 @@ To generate the keymap PNG on your local machine:
 1. Install dependencies:
    ```bash
    pip install keymap-drawer
-   sudo apt-get install inkscape  # For SVG to PNG conversion
+   sudo apt-get install inkscape  # For SVG to PNG conversion (Ubuntu/Debian)
+   # OR: brew install inkscape    # For macOS
    ```
 
 2. Create a config file for the background color:
@@ -114,8 +115,8 @@ To generate the keymap PNG on your local machine:
 
 3. Generate the PNG:
    ```bash
-   keymap-drawer -c keymap-config.yaml parse -z config/corne.keymap | \
-   keymap-drawer -c keymap-config.yaml draw -z corne -o config/corne.keymap.svg -
+   python -m keymap_drawer -c keymap-config.yaml parse -z config/corne.keymap | \
+   python -m keymap_drawer -c keymap-config.yaml draw -z corne -o config/corne.keymap.svg -
    inkscape --export-type=png --export-dpi=300 config/corne.keymap.svg -o config/corne.keymap.png
    ```
 
