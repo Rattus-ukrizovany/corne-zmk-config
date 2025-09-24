@@ -120,4 +120,3 @@ To generate the keymap PNG on your local machine:
    inkscape --export-type=png --export-dpi=300 config/corne.keymap.svg -o config/corne.keymap.png
    ```
 
-<img src="https://raw.githubusercontent.com/Rattus-ukrizovany/corne-zmk-config/main/config/corne.keymap.png" alt="Keymap PNG Example" width="600"/>
