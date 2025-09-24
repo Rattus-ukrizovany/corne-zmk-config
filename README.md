@@ -69,9 +69,20 @@ The keymap is identical across all build targets to ensure consistent behavior.
 
 ### Keymap Drawer
 
-![Keymap Drawer](assets/corne.keymap.png)
+You can always find the latest keymap PNG here:
+![Keymap Drawer](keymap/corne.keymap.png)
 
 The above keymap drawer represents the current configuration and preserves the original color scheme as referenced.
+
+## Download Latest Firmware & Keymap
+
+After every successful build, the latest firmware files and keymap PNG are automatically uploaded here:
+
+- [Download latest Corne Left firmware](firmware/corne_left-nice_nano_v2-zmk.uf2)
+- [Download latest Corne Right firmware](firmware/corne_right-nice_nano_v2-zmk.uf2)
+- [Download latest Dongle firmware](firmware/corne_dongle-nice_nano_v2-zmk.uf2)
+- [Download latest Settings Reset firmware](firmware/settings_reset-nice_nano_v2-zmk.uf2)
+- [View latest keymap PNG](keymap/corne.keymap.png)
 
 ## Configuration Files
 
@@ -128,4 +139,3 @@ To generate the keymap PNG on your local machine:
    python -m keymap_drawer -c keymap-config.yaml draw -z corne -o config/corne.keymap.svg -
    inkscape --export-type=png --export-dpi=300 config/corne.keymap.svg -o config/corne.keymap.png
    ```
-
