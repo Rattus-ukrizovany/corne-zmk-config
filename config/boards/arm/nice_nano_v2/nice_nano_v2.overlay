@@ -3,23 +3,6 @@
  *
  * SPDX-License-Identifier: MIT
  */
-&i2c0 {
-    ssh1106@3c {
-        compatible = "solomon,ssh1106";
-        reg = <0x3c>;
-        width = <128>;
-        height = <64>;
-        segment-offset = <2>;
-        page-offset = <0>;
-        display-offset = <0>;
-        multiplex-ratio = <63>;
-        segment-remap;
-        com-invdir;
-        com-sequential;
-        prechargep = <0x22>;
-        vcomh = <0x35>;
-    };
-};
 
 // SSH1106 display configuration moved to shield-specific overlays
 // to avoid conflicts with other shield types (e.g., Nice View displays)
