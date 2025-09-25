@@ -57,8 +57,8 @@ RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5)                 RC(2,6) RC(2,7) 
     pinctrl-1 = <&i2c0_sleep>;
     pinctrl-names = "default", "sleep";
 
-    oled: ssh1106@3c {
-        compatible = "solomon,ssh1106fb";
+    oled: ssd1306@3c {
+        compatible = "solomon,ssd1306fb";
         reg = <0x3c>;
         width = <128>;
         height = <64>;
