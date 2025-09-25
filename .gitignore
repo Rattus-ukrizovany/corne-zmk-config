@@ -3,3 +3,11 @@ config/corne.keymap.png
 config/corne.keymap.svg
 
 # Generated firmware files
+
+# Build artifacts and dependencies
+build/
+modules/
+zephyr/
+zmk/
+zmk-dongle-display/
+.west/

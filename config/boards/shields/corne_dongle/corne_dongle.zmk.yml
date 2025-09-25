@@ -1,0 +1,12 @@
+file_format: "1"
+id: corne_dongle
+name: corne_dongle
+type: shield
+url: https://github.com/Rattus-ukrizovany/corne-zmk-config
+requires: [pro_micro]
+features:
+  - keys
+  - display
+siblings:
+  - corne_left
+  - corne_right
