@@ -39,11 +39,13 @@ jobs:
           python -m keymap_drawer -c keymap-config.yaml draw -z corne -o config/corne.keymap.svg -
           
       - name: Convert SVG to PNG
-        run: inkscape --export-type=png --export-dpi=300 config/corne.keymap.svg -o config/corne.keymap.png
+        run: |
+          mkdir -p keymap
+          inkscape --export-type=png --export-dpi=300 config/corne.keymap.svg -o keymap/corne.keymap.png
         
       - name: Upload PNG artifact
         uses: actions/upload-artifact@v4
         with:
           name: keymap-png-${{ github.job }}-${{ github.run_id }}
-          path: assets/corne.keymap.png
+          path: keymap/corne.keymap.png
           retention-days: 30

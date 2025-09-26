@@ -25,15 +25,16 @@ jobs:
 
       - name: Generate keymap PNG
         run: |
+          mkdir -p keymap
           python -m keymap_drawer parse -z config/corne.keymap | \
           python -m keymap_drawer draw -z corne -o corne.keymap.svg -
-          inkscape --export-type=png --export-dpi=300 corne.keymap.svg -o corne.keymap.png
+          inkscape --export-type=png --export-dpi=300 corne.keymap.svg -o keymap/corne.keymap.png
 
       - name: Upload keymap PNG
         uses: actions/upload-artifact@v4
         with:
           name: keymap-image
-          path: corne.keymap.png
+          path: keymap/corne.keymap.png
 
   push_artifacts:
     name: Push build artifacts to repo
