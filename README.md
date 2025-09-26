@@ -204,8 +204,8 @@ This configuration **follows foostan Corne wiring standards**:
 ### 🔌 Hardware Pin Usage
 
 **Dongle (Nice Nano v2)**:
-- Pin 17 (P0.17): I2C SDA → SSH1106 Display
-- Pin 20 (P0.20): I2C SCL → SSH1106 Display
+- Pin 17 (P0.17): I2C SDA → SSH1106 Display (128x64)
+- Pin 20 (P0.20): I2C SCL → SSH1106 Display (128x64)  
 - No physical matrix pins (receives wireless input)
 
 **Keyboard Halves**: Standard Corne wiring (unchanged)

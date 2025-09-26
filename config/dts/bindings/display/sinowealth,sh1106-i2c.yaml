@@ -1,0 +1,59 @@
+# Copyright (c) 2023 mctechnology17
+# SPDX-License-Identifier: Apache-2.0
+
+description: Sinowealth SH1106 display controller (I2C)
+
+compatible: "sinowealth,sh1106"
+
+include: [i2c-device.yaml]
+
+properties:
+  width:
+    type: int
+    required: true
+    description: Width in pixels
+
+  height:
+    type: int  
+    required: true
+    description: Height in pixels
+
+  segment-offset:
+    type: int
+    description: Segment offset
+
+  page-offset:
+    type: int
+    description: Page offset
+
+  display-offset:
+    type: int
+    description: Display offset
+
+  multiplex-ratio:
+    type: int
+    description: Multiplex ratio
+
+  segment-remap:
+    type: boolean
+    description: Enable segment remapping
+
+  com-invdir:
+    type: boolean
+    description: Enable COM output scan direction inversion
+
+  com-sequential:
+    type: boolean
+    description: Enable sequential COM pin configuration
+
+  prechargep:
+    type: int
+    description: Pre-charge period setting
+
+  vcomh:
+    type: int
+    description: VCOMH deselect level setting
+
+  inversion-on:
+    type: boolean
+    description: Enable display inversion
