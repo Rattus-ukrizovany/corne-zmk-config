@@ -60,7 +60,7 @@ RC(2,0) RC(2,1) RC(2,2) RC(2,3) RC(2,4) RC(2,5)                 RC(2,6) RC(2,7) 
     /*
      * SSD1306 OLED Display Configuration
      * Note: All properties used here must be declared in the corresponding
-     * device tree binding: zephyr/dts/bindings/display/solomon,ssd1306fb-i2c.yaml
+     * device tree binding: config/dts/bindings/display/solomon,ssd1306fb-i2c.yaml
      * Keep properties and bindings synchronized to avoid build failures.
      */
     oled: ssd1306@3c {

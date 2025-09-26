@@ -6,7 +6,7 @@
  * NOTE: This keymap configuration is used across multiple devices.
  * When modifying overlays or device-specific properties, ensure that
  * all corresponding device tree bindings are properly declared.
- * See: zephyr/dts/bindings/display/solomon,ssd1306fb-i2c.yaml
+ * See: config/dts/bindings/display/solomon,ssd1306fb-i2c.yaml
  */
 
 #include <behaviors.dtsi>

@@ -5,7 +5,7 @@
  * 
  * NOTE: This dongle keymap shares configuration with the main keymap.
  * When modifying device tree properties in overlays, ensure proper
- * binding declarations exist in zephyr/dts/bindings/ to avoid build failures.
+ * binding declarations exist in config/dts/bindings/ to avoid build failures.
  */
 
 #include <behaviors.dtsi>
